@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="format-detection" content="telephone=no">
+  <title>demo</title>
+  <% if (htmlWebpackPlugin.options.filename==='index_demo.html'){ %>
+    <script type="text/javascript" src="//storage.jd.com/ambient-global/ambient-autoStop-head.js"></script>
+  <% } %>
+</head>
+<body>
+  <!-- S 主体内容 -->
+  <div class="o2team_ambient_main">
+    <canvas></canvas>
+  </div>
+  <!-- E 主体内容 -->
+  <% if (htmlWebpackPlugin.options.filename==='index_demo.html'){ %>
+    <script type="text/javascript" src="//storage.jd.com/ambient-global/ambient-autoStop-body.js"></script>
+  <% } %>
+</body>
+</html>

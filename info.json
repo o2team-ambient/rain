@@ -1,0 +1,11 @@
+{
+  "author": "Yetty",
+  "demoUrl": "//o2team-ambient.github.io/rain/dist/",
+  "miniDemoUrl": "//o2team-ambient.github.io/rain/dist/index_demo.html",
+  "title": "rain",
+  "ambName": "表情雨",
+  "github": "https://github.com/o2team-ambient/rain",
+  "demoSnippet": "<link href=\"//storage.jd.com/ambient/styles-rain.css?t=1552529030000\" rel=\"stylesheet\"></link><!-- S 主体内容 -->\n  <div class=\"o2team_ambient_main\">\n    <canvas></canvas>\n  </div>\n  <!-- E 主体内容 --><script src=\"//storage.jd.com/ambient/bundle-rain.js?t=1552529030000\"></script>",
+  "controlUrl": "//storage.jd.com/ambient/control-rain.js?t=1552529030000",
+  "configUrl": "//storage.jd.com/ambient/config-rain.js?t=1552529030000"
+}

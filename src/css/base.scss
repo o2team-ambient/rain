@@ -1,0 +1,25 @@
+/**
+ * 样式重置
+ */
+ * {
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  height: 100%;
+  width: 100%;
+}
+
+.o2team_ambient_main {
+  height: 100%;
+  widows: 100%;
+  z-index: 999;
+  pointer-events: none;
+}
