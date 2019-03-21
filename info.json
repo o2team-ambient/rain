@@ -1,7 +1,7 @@
 {
   "author": "Yetty",
-  "demoUrl": "http://jdc.jd.com/demo/ambient/rain/",
-  "miniDemoUrl": "http://jdc.jd.com/demo/ambient/rain/index_demo.html",
+  "demoUrl": "//o2team-ambient.github.io/rain/dist/",
+  "miniDemoUrl": "//o2team-ambient.github.io/rain/dist/index_demo.html",
   "title": "rain",
   "ambName": "表情雨",
   "github": "https://github.com/o2team-ambient/rain",

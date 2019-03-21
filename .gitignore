@@ -2,6 +2,7 @@ node_modules/
 .git/
 .cache/
 .DS_Store
-dist/
+dist/*.js
+dist/*.css
 plugins/
 package-lock.json
