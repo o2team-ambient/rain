@@ -6,6 +6,6 @@ module.exports = {
   // 自定义 webpack 配置项
   webpack: '',
   placeholder: {
-    delay: 5000
+    delay: 3000
   }
 }
