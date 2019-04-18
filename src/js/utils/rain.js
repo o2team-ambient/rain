@@ -1,10 +1,9 @@
 import Preloader from './preload'
-import { TweenMax } from 'gsap/TweenMax.js'
+import TweenMax from 'gsap/TweenMax'
 
 import { getRandomInt, getRgba } from './util'
 
-import { O2_AMBIENT_CLASSNAME, O2_AMBIENT_CONFIG } from './const'
-
+import { O2_AMBIENT_CONFIG } from './const'
 class Rain {
   constructor(conf) {
     this._setConf()
@@ -79,7 +78,7 @@ class Rain {
       return arr
     })()
     this.bgColor = conf.bgColor || '000000'
-    this.bgOpacity = conf.bgOpacity || 100
+    this.bgOpacity = conf.bgOpacity || 0
   }
   // 初始化
   _init() {

@@ -5,7 +5,7 @@ window[O2_AMBIENT_CONFIG] = {
   durtaion: 5,
   stagger: 0.2,
   bgColor: '000000',
-  bgOpacity: 50,
+  bgOpacity: 0,
   textures: [
     '//img11.360buyimg.com/ling/s40x40_jfs/t18934/336/2145230261/6595/a1c52247/5ae921e6N79e26545.png',
     '//img30.360buyimg.com/ling/jfs/t18592/258/2135046772/2474/e4166c50/5ae921e6N7623e094.png',

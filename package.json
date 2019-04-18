@@ -1,8 +1,8 @@
 {
-  "name": "rain",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@o2team/ambient-rain",
+  "version": "1.0.1",
+  "description": "夸克动效库-表情雨",
+  "main": "dist/index.min.js",
   "scripts": {
     "start": "am s",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +14,23 @@
     "gsap": "^1.20.4"
   },
   "devDependencies": {
-    "babel-runtime": "^6.26.0"
+    "eslint": "^5.2.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "json-loader": "^0.5.7",
+    "rollup": "^1.8.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.1",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-uglify": "^6.0.2"
   }
 }
