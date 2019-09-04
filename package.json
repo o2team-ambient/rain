@@ -10,7 +10,7 @@
   "author": "src",
   "license": "ISC",
   "dependencies": {
-    "@o2team/ambient-dat.gui": "^0.7.9",
+    "@o2team/ambient-dat.gui": "^0.7.14",
     "@o2team/ambient-report": "^1.0.3",
     "gsap": "^1.20.4"
   },
