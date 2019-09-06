@@ -14,6 +14,8 @@ import { getParameterByName } from './utils/util'
 import processLocalConfig from './utils/processLocalConfig'
 
 import configKeys from './configs/keys'
+import configNationalDay1 from './configs/configNationalDay1'
+import configNationalDay2 from './configs/configNationalDay2'
 
 /* eslint-disable no-unused-vars */
 const isLoop = getParameterByName('loop')
@@ -21,11 +23,17 @@ const configKeyVal = getParameterByName('configKey')
 const configKey = configKeys[configKeyVal] || configKeys['default']
 
 const loadData = {
-  "默认": {
-    "0": {...window[O2_AMBIENT_CONFIG]}
+  '默认': {
+    '0': {...window[O2_AMBIENT_CONFIG]}
   },
-  "2018吃货节": {
-    "0": {...window[O2_AMBIENT_CONFIG]}
+  '2018吃货节': {
+    '0': {...window[O2_AMBIENT_CONFIG]}
+  },
+  '国庆氛围1': {
+    '0': {...configNationalDay1}
+  },
+  '国庆氛围2': {
+    '0': {...configNationalDay2}
   }
 }
 const allLoadData = processLocalConfig({ configKey, guiName: O2_AMBIENT_CLASSNAME, loadData })
@@ -58,7 +66,7 @@ let controlInit = () => {
         name: O2_AMBIENT_CLASSNAME,
         preset: configKey,
         load: {
-          "remembered": { ...allLoadData.remembered }
+          'remembered': { ...allLoadData.remembered }
         }
       })
       gui.useLocalStorage = true
