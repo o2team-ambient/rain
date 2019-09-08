@@ -5,9 +5,9 @@
   "title": "rain",
   "ambName": "表情雨",
   "github": "https://github.com/o2team-ambient/rain",
-  "demoSnippet": "<link href=\"//storage.jd.com/ambient/styles-rain.css?t=1567587719000\" rel=\"stylesheet\"></link><!-- S 主体内容 -->\n  <div class=\"o2team_ambient_main\">\n    <canvas></canvas>\n  </div>\n  <!-- E 主体内容 --><script src=\"//storage.jd.com/ambient/bundle-rain.js?t=1567587719000\"></script>",
-  "controlUrl": "//storage.jd.com/ambient/control-rain.js?t=1567587719000",
-  "configUrl": "//storage.jd.com/ambient/config-rain.js?t=1567587719000",
+  "demoSnippet": "<link href=\"//storage.jd.com/ambient/styles-rain.css?t=1567938728000\" rel=\"stylesheet\"></link><!-- S 主体内容 -->\n  <div class=\"o2team_ambient_main\">\n    <canvas></canvas>\n  </div>\n  <!-- E 主体内容 --><script src=\"//storage.jd.com/ambient/bundle-rain.js?t=1567938728000\"></script>",
+  "controlUrl": "//storage.jd.com/ambient/control-rain.js?t=1567938728000",
+  "configUrl": "//storage.jd.com/ambient/config-rain.js?t=1567938728000",
   "placeholderImg": "//storage.jd.com/ambient/rain_placeholder.png?t=1554282788000",
   "gifImg": "//storage.jd.com/ambient/rain_motion.gif?t=1554083952000",
   "spriteImg": "//storage.jd.com/ambient/rain_sprite.png?t=1554282788000"
