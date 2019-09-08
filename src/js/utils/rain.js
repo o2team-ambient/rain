@@ -10,12 +10,22 @@ class Rain {
 
   constructor () {
     this._setConf()
-    this.imgInfo = []
-    this.unitSet = []
     this.isInit = false
     this.isCanvas = this.mode === 'canvas'
 
     this.play()
+  }
+
+  // 初始化
+  _init () {
+    this.imgInfo = []
+    this._getWindowSize()
+    this._loadImages(() => {
+      if (this.isCanvas) {
+        this._initCanvas()
+       }
+      this.isInit = true
+    })
   }
 
   // 获取窗口尺寸
@@ -46,6 +56,7 @@ class Rain {
 
   // 设置配置的参数
   _setConf () {
+
     const conf = window[O2_AMBIENT_CONFIG]
     const defaultConf = {
       num: 10,
@@ -66,41 +77,22 @@ class Rain {
     this.clickable = conf.clickable || defaultConf.clickable
     this.ease = conf.ease || defaultConf.ease
     this.endCallback = conf.endCallback || defaultConf.endCallback
-    this.images = (() => {
-      const arr = []
-
-      for (const key in conf.textures) {
-        arr.push(conf.textures[key])
-      }
-
-      return arr
-    })()
-  }
-
-  // 初始化
-  _init () {
-    this._getWindowSize()
-    this._loadImages(() => {
-      if (this.isCanvas) {
-        this._initCanvas()
-       } else {
-         this._initDom()
-       }
-      this.isInit = true
-    })
+    this.images = conf.textures.map(image => image)
   }
 
   // 初始化 canvas 模式
   _initCanvas () {
-    const domMain = document.querySelector('.o2team_ambient_main')
-    const canvas = domMain.querySelector('canvas')
+    if (!this.isInit) {
+      const domMain = document.querySelector('.o2team_ambient_main')
+      const canvas = domMain.querySelector('canvas')
 
-    this.canvas = canvas
-    this.canvas.setAttribute('id', 'canvas')
+      this.canvas = canvas
+      this.canvas.setAttribute('id', 'canvas')
 
-    this.ctx = this.canvas.getContext('2d')
-    // this._setCanvasBg()
-    this._setCanvasSize()
+      this.ctx = this.canvas.getContext('2d')
+      // this._setCanvasBg()
+      this._setCanvasSize()
+    }
     this._createUnitSet()
     this._startAni()
   }
@@ -120,6 +112,8 @@ class Rain {
   _createUnit () {
     // 随机选择一个图片
     const idx = ~~(Math.random() * this.imgInfo.length)
+    if (!this.imgInfo[idx]) return
+
     const isPositive = getRandomInt(0, 2)
     const img = new Image()
     const imgInfo = this.imgInfo[idx]
@@ -141,6 +135,7 @@ class Rain {
 
   // 生成表情元素集合
   _createUnitSet () {
+    this.unitSet = []
     for (let i = 0; i < this.num; i++) {
       this._createUnit()
     }
@@ -149,6 +144,16 @@ class Rain {
   // 开始动画
   _startAni () {
     if (!this.isCanvas) return
+
+    TweenMax.ticker.removeEventListener('tick', tick)
+    TweenMax.killAll()
+
+    const tick = () => {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+      this.unitSet.forEach((img) => {
+        this.ctx.drawImage(img, img.posX, img.posY, img.width, img.height)
+      })
+    }
 
     TweenMax.staggerTo(
       this.unitSet,
@@ -163,17 +168,17 @@ class Rain {
         ease: getEaseFn(this.ease)
       },
       this.stagger,
-      0,
       () => {
-        console.log('complete')
-        typeof this.endCallback === 'function' && this.endCallback()
+        TweenMax.ticker.removeEventListener('tick', tick)
+        if (typeof this.endCallback === 'function') {
+          this.endCallback()
+        } else if (typeof this.endCallback === 'string') {
+          try {
+            eval(`(${decodeURI(this.endCallback)})()`)
+          } catch(e) {}
+        }
       })
-    TweenMax.ticker.addEventListener('tick', () => {
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-      this.unitSet.forEach((img) => {
-        this.ctx.drawImage(img, img.posX, img.posY, img.width, img.height)
-      })
-    })
+    TweenMax.ticker.addEventListener('tick', tick)
   }
 
   // 开始播放动画
@@ -188,12 +193,7 @@ class Rain {
   // 重新播放动画
   reset () {
     this._setConf()
-    this.imgInfo = []
-    this.unitSet = []
-    // this._setCanvasBg()
     this._init()
-    this._createUnitSet()
-    this._startAni()
   }
 }
 
