@@ -14,31 +14,34 @@ import { getParameterByName } from './utils/util'
 import processLocalConfig from './utils/processLocalConfig'
 
 import configKeys from './configs/keys'
-import configNationalDay1 from './configs/configNationalDay1'
-import configNationalDay2 from './configs/configNationalDay2'
+// import configNationalDay1 from './configs/configNationalDay1'
+// import configNationalDay2 from './configs/configNationalDay2'
 
 /* eslint-disable no-unused-vars */
 const isLoop = getParameterByName('loop')
 const configKeyVal = getParameterByName('configKey')
 const configKey = configKeys[configKeyVal] || configKeys['default']
 
-const loadData = {
-  '默认': {
-    '0': {...window[O2_AMBIENT_CONFIG]}
-  },
-  '2018吃货节': {
-    '0': {...window[O2_AMBIENT_CONFIG]}
-  },
-  '国庆氛围1': {
-    '0': {...configNationalDay1}
-  },
-  '国庆氛围2': {
-    '0': {...configNationalDay2}
-  }
-}
-const allLoadData = processLocalConfig({ configKey, guiName: O2_AMBIENT_CLASSNAME, loadData })
+window.localStorage.removeItem('o2_ambient_rain.isLocal')
+window.localStorage.removeItem('o2_ambient_rain.gui')
 
 let controlInit = () => {
+  const loadData = {
+    '默认': {
+      '0': {...window[O2_AMBIENT_CONFIG]}
+    },
+    '2018吃货节': {
+      '0': {...window[O2_AMBIENT_CONFIG]}
+    },
+    // '国庆氛围1': {
+    //   '0': {...configNationalDay1}
+    // },
+    // '国庆氛围2': {
+    //   '0': {...configNationalDay2}
+    // }
+  }
+  const allLoadData = processLocalConfig({ configKey, guiName: O2_AMBIENT_CLASSNAME, loadData })
+
   // 非必要配置字段（仅用于展示，如背景颜色、启动/暂停）
   class OtherConfig {
     constructor () {
@@ -69,8 +72,8 @@ let controlInit = () => {
           'remembered': { ...allLoadData.remembered }
         }
       })
-      gui.useLocalStorage = true
-      gui.remember(config)
+      // gui.useLocalStorage = true
+      // gui.remember(config)
       gui.addCallbackFunc(this.resetCanvas.bind(this))
       
       gui.add(otherConfig, 'play').name('重播')
