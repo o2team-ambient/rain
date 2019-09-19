@@ -19,16 +19,16 @@ export default class Preloader {
       img.src = item.src
       img.onload = img.onerror = img.onabort = () => {
         this.result[item.id] = img
-        this.updateProcess()
+        this.updateProcess(img)
       }
     })
   }
 
-  updateProcess() {
+  updateProcess(img) {
     this.count++
     let percent = Math.round(this.count / this.total * 100)
     if (typeof this.onProgress === 'function') {
-      this.onProgress(percent)
+      this.onProgress(percent, img)
     }
     if (this.count === this.total && typeof this.onComplete === 'function') {
       this.onComplete()

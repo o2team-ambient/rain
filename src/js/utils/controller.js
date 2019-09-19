@@ -17,7 +17,7 @@ const isShowController = getParameterByName('controller') // 是否展示控制�
 const isAmbientPlat = getParameterByName('platform') === '1' // 是否平台环境
 
 class Controller {
-  constructor() {
+  constructor () {
     this.config = window[O2_AMBIENT_CONFIG] || {}
     this.isShowController = isShowController
     this.isAmbientPlat = isAmbientPlat
@@ -40,7 +40,7 @@ class Controller {
   }
 
   // 监听 postmessage
-  bindMsg() {
+  bindMsg () {
     window.addEventListener('message', (msg) => {
       if (msg.data.type !== 'reset') return
       window[O2_AMBIENT_CONFIG] = Object.assign(window[O2_AMBIENT_CONFIG], msg.data.data)
@@ -56,17 +56,17 @@ class Controller {
   }
 
   // 设置控制板层级
-  setGUIzIndex(zIndex) {
+  setGUIzIndex (zIndex) {
     this.gui.domElement.parentElement.style.zIndex = zIndex
   }
 
   // 设置页面背景色
-  setBackgroundColor(color) {
+  setBackgroundColor (color) {
     document.body.style.backgroundColor = color
   }
 
   // 传送数据
-  transMsg(dom) {
+  transMsg (dom) {
     let transWin = dom.contentWindow
     transWin.postMessage({
       type: 'reset',
@@ -75,7 +75,7 @@ class Controller {
   }
 
   // iframe dom
-  transferProcess() {
+  transferProcess () {
     if (!this.transferMonPC) {
       this.transferMonPC = document.getElementById('transferMon_pc')
     }
@@ -88,7 +88,7 @@ class Controller {
   }
 
   // 重置画布
-  resetCanvas(opts) {
+  resetCanvas (opts) {
     if (this.isAmbientPlat) {
       this.transferProcess()
 
